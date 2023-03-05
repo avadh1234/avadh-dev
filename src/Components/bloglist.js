@@ -14,6 +14,7 @@ export default function Bloglist() {
                 }));
                 setBlogs(blogs);
             });
+            console.log(blogs);
     }, []);
 
     return (
@@ -24,7 +25,7 @@ export default function Bloglist() {
                         <div class="card">
                             <div class="card-header p-0 position-relative">
                                 <a href="#blog-single">
-                                    <img class="card-img-bottom d-block radius-image" src="/about-bg.jpg"
+                                    <img class="card-img-bottom d-block radius-image" src={e?.thumbnail ? e.thumbnail :"/about-bg.jpg"}
                                         alt="Card image cap" height="230px" />
                                 </a>
                                 <div class="post-pos">
@@ -32,7 +33,7 @@ export default function Bloglist() {
                                 </div>
                             </div>
                             <div class="card-body p-0 blog-details">
-                                <a href="#blog-single" class="blog-desc">The only 12 curry recipes you’ll Ever Need
+                                <a href="#blog-single" class="blog-desc">{e?.posttitle}
                                 </a>
                                 <span class="post-date"><span class="fa fa-clock-o"></span> Oct 4, 2020</span>
                             </div>
