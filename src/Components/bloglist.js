@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import fire from "../config/config";
+import Pagination from "./Pagination";
 
 export default function Bloglist() {
 
@@ -41,6 +42,9 @@ export default function Bloglist() {
                     </div>
                 )
             })}
+            {(blogs.length/12) > 1 && (
+                <Pagination length={blogs}/>
+            )}
         </>
     );
 }
