@@ -37,7 +37,7 @@ export default function Blogdetails(props) {
                     </div>
                 </div>
             </div>
-            <Shareicon link={location}/> 
+            <Shareicon link={location} data={entry} /> 
             <Comments />
         </div>
     );
