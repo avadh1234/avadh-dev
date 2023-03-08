@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import fire from "../config/config";
 
@@ -24,17 +25,16 @@ export default function Bloglist() {
                     <div class="col-lg-4 col-md-6 item" key={index}>
                         <div class="card">
                             <div class="card-header p-0 position-relative">
-                                <a href="#blog-single">
+                                <Link href={e.urlstructure}>
                                     <img class="card-img-bottom d-block radius-image" src={e?.thumbnail ? e.thumbnail :"/about-bg.jpg"}
                                         alt="Card image cap" height="230px" />
-                                </a>
+                                </Link>
                                 <div class="post-pos">
                                     <a href="#reciepe" class="receipe blue">How to</a>
                                 </div>
                             </div>
                             <div class="card-body p-0 blog-details">
-                                <a href="#blog-single" class="blog-desc">{e?.posttitle}
-                                </a>
+                                <Link href={e.urlstructure} class="blog-desc">{e?.posttitle}</Link>
                                 <span class="post-date"><span class="fa fa-clock-o"></span> Oct 4, 2020</span>
                             </div>
                         </div>
