@@ -18,14 +18,14 @@ export default function Shareicon(props) {
     <div>
       <h1>Social Share - GeeksforGeeks</h1>
       <FacebookShareButton
-        url={`${link}`}
+        url={`${link}`} 
         quote={data?.metadescription}
         >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
       <PinterestShareButton
         url={`${link}`} 
-        media={data?.thumbnail}
+        // media={data?.thumbnail}
         description={data?.posttitle}
         >
         <PinterestIcon size={32} round />
@@ -39,6 +39,7 @@ export default function Shareicon(props) {
       <WhatsappShareButton
         url={`${link}`} 
         title={data?.posttitle}
+        separator=":: "
         >
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>
