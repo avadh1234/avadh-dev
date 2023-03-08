@@ -13,7 +13,9 @@ export default function PostDetail(props) {
   }else{ 
     if(entry){
   return (
+     <>
       <Blogdetails entry={entry}/>
+      </>
   );
 
     }
