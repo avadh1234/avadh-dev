@@ -1,54 +1,45 @@
 import {
-    FacebookShareButton,
-    FacebookIcon,
-    PinterestShareButton,
-    PinterestIcon,
-    RedditShareButton,
-    RedditIcon,
-    WhatsappShareButton,
-    WhatsappIcon,
-    LinkedinShareButton,
-    LinkedinIcon,
-  } from 'next-share';
+  FacebookShareButton,
+  FacebookIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  RedditShareButton,
+  RedditIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'next-share';
 
 export default function Shareicon(props) {
-    const {link , data} = props
-    console.log(link ,data);
+  const { link, data } = props
+  console.log(link, data);
   return (
-    <div>
-      <h1>Social Share - GeeksforGeeks</h1>
+    <div className='share-icon-main'>
       <FacebookShareButton
-        url={`${link}`} 
+        url={`${link}`}
         quote={data?.metadescription}
-        >
-        <FacebookIcon size={32} round />
+      >
+        <FacebookIcon size={50} round />
       </FacebookShareButton>
+      <TwitterShareButton
+        url={`${link}`}
+        title={data?.posttitle}
+      >
+        <TwitterIcon size={50} round />
+      </TwitterShareButton>
       <PinterestShareButton
-        url={`${link}`} 
-        // media={data?.thumbnail}
+        url={`${link}`}
         description={data?.posttitle}
-        >
-        <PinterestIcon size={32} round />
+      >
+        <PinterestIcon size={50} round />
       </PinterestShareButton>
-      <RedditShareButton
-        url={`${link}`} 
-        title={data?.posttitle}
-        >
-        <RedditIcon size={32} round />
-      </RedditShareButton>
-      <WhatsappShareButton
-        url={`${link}`} 
-        title={data?.posttitle}
-        separator=":: "
-        >
-        <WhatsappIcon size={32} round />
-      </WhatsappShareButton>
-      <LinkedinShareButton
-        url={`${link}`} 
-        title={data?.posttitle}
-        >
-        <LinkedinIcon size={32} round />
+      <LinkedinShareButton  url={`${link}`}>
+        <LinkedinIcon size={50} round />
       </LinkedinShareButton>
+
     </div>
   );
 }

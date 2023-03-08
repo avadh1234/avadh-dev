@@ -319,3 +319,31 @@ footer {
       border-radius: 5px;
       font-weight: 600;   
   }
+
+  .share-icon-main{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 200px;
+    button{
+      margin-bottom: 10px;
+    }
+    @media (max-width:1200px) {
+      left: 100px;
+    }
+    @media (max-width:1200px) {
+      left: 100px;
+    }
+    @media (max-width:700px) {
+      position: relative;
+      flex-direction: row;
+      left: unset;
+      right: unset;
+      button{
+        margin-right: 10px;
+        margin-top: 80px;
+      }
+    }
+  }

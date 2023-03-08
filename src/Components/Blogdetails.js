@@ -32,13 +32,13 @@ export default function Blogdetails(props) {
                                     </div>
                                 
                             </article>
+                            <Shareicon link={location} data={entry} /> 
+                            <Comments />
                         </div>
 
                     </div>
                 </div>
             </div>
-            <Shareicon link={location} data={entry} /> 
-            <Comments />
         </div>
     );
 }
