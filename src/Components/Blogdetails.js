@@ -16,6 +16,20 @@ export default function Blogdetails(props) {
         <title>{entry?.pagetitle}</title>
         <meta name="description" content={entry?.metadescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="title" content={entry?.pagetitle}/>
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={location}/>
+        <meta property="og:title" content={entry?.pagetitle}/>
+        <meta property="og:description" content={entry?.metadescription}/>
+        <meta property="og:image" content={entry.thumbnail}/>
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={location} />
+        <meta property="twitter:title" content={entry?.pagetitle} />
+        <meta property="twitter:description" content={entry?.metadescription} />
+        <meta property="twitter:image" content={entry.thumbnail}/>
+
       </Head>
         <div>
             <div className="masthead">
