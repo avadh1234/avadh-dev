@@ -64,13 +64,11 @@ export default function AddPost() {
   
   const getData = (e) => {
     if(e.target.name == "thumbnail"){
-      console.log("called");
       const file = e.target.files[0];
       convertToBase64(file)
       .then((e)=>{
         setBodydata((prev)=>({ ...prev, thumbnail: e}))
       })
-      // console.log(base64);
       
     }
     else{
@@ -81,7 +79,6 @@ export default function AddPost() {
 
   const handledata = (e) => {
     e.preventDefault()
-    console.log(bodydata);
 
     fire.firestore()
       .collection('blog')

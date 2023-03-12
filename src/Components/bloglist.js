@@ -16,27 +16,26 @@ export default function Bloglist() {
                 }));
                 setBlogs(blogs);
             });
-            console.log(blogs);
     }, []);
 
     return (
         <>
             {blogs.map((e,index) => {
                 return (
-                    <div class="col-lg-4 col-md-6 item" key={index}>
-                        <div class="card">
-                            <div class="card-header p-0 position-relative">
+                    <div className="col-lg-4 col-md-6 item" key={index}>
+                        <div className="card">
+                            <div className="card-header p-0 position-relative">
                                 <Link href={e.urlstructure}>
-                                    <img class="card-img-bottom d-block radius-image" src={e?.thumbnail ? e.thumbnail :"/about-bg.jpg"}
+                                    <img className="card-img-bottom d-block radius-image" src={e?.thumbnail ? e.thumbnail :"/about-bg.jpg"}
                                         alt="Card image cap" height="230px" />
                                 </Link>
-                                <div class="post-pos">
-                                    <a href="#reciepe" class="receipe blue">How to</a>
+                                <div className="post-pos">
+                                    <a href="#reciepe" className="receipe blue">How to</a>
                                 </div>
                             </div>
-                            <div class="card-body p-0 blog-details">
-                                <Link href={e.urlstructure} class="blog-desc">{e?.posttitle}</Link>
-                                <span class="post-date"><span class="fa fa-clock-o"></span> Oct 4, 2020</span>
+                            <div className="card-body p-0 blog-details">
+                                <Link href={e.urlstructure} className="blog-desc">{e?.posttitle}</Link>
+                                <span className="post-date"><span className="fa fa-clock-o"></span> Oct 4, 2020</span>
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,6 @@ import {
 
 export default function Shareicon(props) {
   const { link, data } = props
-  console.log(link, data);
   return (
     <div className='share-icon-main'>
       <FacebookShareButton
