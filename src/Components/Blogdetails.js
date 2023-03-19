@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -40,8 +41,8 @@ export default function Blogdetails(props) {
                                 <h1>{entry?.posttitle}</h1>
                                 <span className="meta">
                                     Posted by
-                                    <a href="#!">{entry.authorname}</a>
-                                    on {entry.Publishdate}
+                                    <a href="#!"> {entry.authorname} </a>
+                                     on {moment(entry.Publishdate).format('LL')}
                                 </span>
                                 <img src={entry.thumbnail} width="100%" />
                             </div>

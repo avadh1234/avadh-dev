@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="py-5">
             <div className="container pt-md-1">
                 <div className="footer-logo mb-lg-4 mb-4 text-center">
-                    <a className="navbar-brand" href="index.html"><span className="fa fa-bell-o"></span> Blog Store</a>
+                    <a className="navbar-brand" href="index.html"><span className="fa fa-bell-o"></span>DevSafari.com</a>
                     <p>We want to provide you with a great experience. Your feedback helps us
                         bring you more of the events you love and the service you expect.</p>
                 </div>
@@ -21,7 +21,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <p className="mt-4">© 2020 Blog Store. All Rights Reserved | Design by <Link href="http://w3layouts.com/"
-                            target="=_blank"> W3layouts
+                            target="=_blank"> DevSafari.com
                         </Link></p>
                     </div>
                 </div>

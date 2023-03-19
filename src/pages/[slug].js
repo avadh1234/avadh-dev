@@ -1,5 +1,4 @@
 import Blogdetails from "@/Components/Blogdetails";
-import { Comments } from "@/Components/Comments";
 import fire from "@/config/config";
 import { useRouter } from "next/router";
 

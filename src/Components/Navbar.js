@@ -22,6 +22,14 @@ const link = [
         label : "Add post",
         path : '/admin/addpost'
     },
+    {
+        label : "Sitemap",
+        path : '/sitemap'
+    },
+    {
+        label : "News Latter",
+        path : ''
+    },
 ]
 
 export default function Navbar() {

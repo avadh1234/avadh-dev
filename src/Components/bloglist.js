@@ -1,25 +1,30 @@
+import moment from "moment";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import fire from "../config/config";
+import Category from "./Category";
+import Getdata from "./Getdata";
 import Pagination from "./Pagination";
 
 export default function Bloglist() {
 
     const [blogs, setBlogs] = useState([]);
+    const [search , setSearch] =useState('')
+    const [categorys, setcategory] = useState('');
     useEffect(() => {
-        fire.firestore()
-            .collection('blog')
-            .onSnapshot(snap => {
-                const blogs = snap.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                setBlogs(blogs);
-            });
-    }, []);
-
+        Getdata({query : search,limit : 2,type: categorys})
+        .then(res => setBlogs(res))
+    }, [search,categorys]);
+      
     return (
         <>
+         <Category
+          onchange={e => setSearch(e.target.value)}
+          setcategorys={setcategory}
+          Categorys={categorys}
+         />
+         <div className="container px-5">
+            <div className="row">
             {blogs.map((e,index) => {
                 return (
                     <div className="col-lg-4 col-md-6 item" key={index}>
@@ -30,17 +35,19 @@ export default function Bloglist() {
                                         alt="Card image cap" height="230px" />
                                 </Link>
                                 <div className="post-pos">
-                                    <a href="#reciepe" className="receipe blue">How to</a>
+                                    <a href="#reciepe" className="receipe blue">{e.selectcategory}</a>
                                 </div>
                             </div>
                             <div className="card-body p-0 blog-details">
                                 <Link href={e.urlstructure} className="blog-desc">{e?.posttitle}</Link>
-                                <span className="post-date"><span className="fa fa-clock-o"></span> Oct 4, 2020</span>
+                                <span className="post-date"><span className="fa fa-clock-o"></span>{moment(e.Publishdate).format('LL')}</span>
                             </div>
                         </div>
                     </div>
                 )
-            })}
+            })}</div>
+            </div>
+            <Pagination/>
             {(blogs.length/12) > 1 && (
                 <Pagination length={blogs}/>
             )}

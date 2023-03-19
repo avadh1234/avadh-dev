@@ -1,28 +1,35 @@
+import moment from "moment";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Getdata from "./Getdata";
 const avadh = [1,2,3,4]
-export default function Homebloglist(props) {
-    const {entry} = props;
+export default function Homebloglist({posts}) {
+    const [blogslist, setBlogslist] = useState([]);
+    useEffect(() => {
+        Getdata({limit : 4,})
+        .then(res => setBlogslist(res))
+    }, []);
     return (
         <div>
             <div className="container px-4 px-lg-5">
                 <div className="row gx-4 gx-lg-5 justify-content-center">
                   <div className="col-md-10 col-lg-8 col-xl-7" >
-                    {avadh.map((e,index)=>{
+                    {blogslist.map((e,index)=>{
                         return(
                        <div key={index}>
                         <div className="post-main" >
                             <div className="post-image">
-                                <img src="/about-bg.jpg" />
+                                <img src={e?.thumbnail ? e.thumbnail :"/about-bg.jpg"} />
                             </div>
                             <div className="post-preview">
-                                <Link href="/123">
-                                    <h2 className="post-title">Man must explore, and this is exploration at its greatest</h2>
+                                <Link href={e.urlstructure}>
+                                    <h2 className="post-title">{e?.posttitle}</h2>
                                     <h3 className="post-subtitle">Problems look mighty small from 150 miles up</h3>
                                 </Link>
                                 <p className="post-meta">
                                     Posted by
                                     <a href="#">Start Bootstrap</a>
-                                    on September 24, 2022
+                                    on {moment(e.Publishdate).format('LL')}
                                 </p>
                             </div>
                         </div>
@@ -38,20 +45,3 @@ export default function Homebloglist(props) {
         </div>
     );
 }
-
-export const getStaticProps = async (context) => {
-    const { slug } = context.params;
-    const res = await fire.firestore().collection("blog").limitToFirst(4).get()
-    const entry = res.docs.map(entry => entry.data());
-    if (entry.length) {
-      return {
-        props: {
-          entry: entry[0]
-        }
-      }
-    } else {
-      return {
-        props: {}
-      }
-    }
-  }

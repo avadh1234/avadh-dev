@@ -4,7 +4,6 @@ import Footer from '@/Components/Footer'
 import Navbar from '@/Components/Navbar'
 import Herosection from '@/Components/Herosection'
 import Homebloglist from '@/Components/Homebloglist'
-import Newslatter from '@/Components/Newslatter'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +18,6 @@ export default function Home() {
       </Head>
       <Herosection/>
       <Homebloglist/>
-      <Newslatter/>
     </>
   )
 }
