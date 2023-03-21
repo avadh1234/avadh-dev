@@ -2,8 +2,7 @@ import fire from "@/config/config";
 
 
 export default async function Getdata(value={}) {
-    console.log(value.type);
-    let data = await fire.firestore().collection('blog').limit(value ? value.limit : undefined).where("posttitle" , ">=" , value.query ? value.query : '').where("selectcategory" , "==" , value.type ? value.type : '').get()
+    let data = await fire.firestore().collection('blog').limit(value ? value.limit : undefined).get()
     
     const blogs = data.docs.map(doc => {
         return {
@@ -11,7 +10,28 @@ export default async function Getdata(value={}) {
             ...doc.data()
         }
     });
-    return blogs;
+ console.log(value.category);
+  const Alldata = blogs.filter((blogs)=>{
+    if (value.query === undefined && value.category === undefined) {
+        return blogs;
+      } else {
+        if (value.query && value.category) {
+           if(blogs.selectcategory === value.category && blogs.posttitle.toLowerCase().includes(value.query.toLowerCase())){
+            return blogs
+           }
+        }
+        else{
+            if(value.category && blogs.selectcategory === value.category){
+                       return blogs
+               }
+               else if(value.query && blogs.posttitle.toLowerCase().includes(value.query.toLowerCase())){
+                return blogs;
+               }
+        }
+      }
+    })
+    console.log(Alldata);
+    return Alldata;
 }
 
 

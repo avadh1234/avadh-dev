@@ -1,14 +1,15 @@
 import moment from "moment";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Bloglist from "./bloglist";
 import Getdata from "./Getdata";
-const avadh = [1,2,3,4]
-export default function Homebloglist({posts}) {
+export default function Homebloglist() {
     const [blogslist, setBlogslist] = useState([]);
     useEffect(() => {
-        Getdata({limit : 4,})
+        Getdata({limit : 4})
         .then(res => setBlogslist(res))
     }, []);
+    console.log(Bloglist);
     return (
         <div>
             <div className="container px-4 px-lg-5">
